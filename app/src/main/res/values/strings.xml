@@ -1,22 +1,28 @@
 <resources>
     <string name="shr_app_name">SecondLife</string>
-    <string name="shr_hint_username">Username</string>
-    <string name="shr_hint_password">Password</string>
-    <string name="shr_button_next">Next</string>
-    <string name="shr_button_cancel">Cancel</string>
-    <string name="shr_error_password">Password must contain at least 8 characters.</string>
-    <string name="shr_filter_title">Filter</string>
-    <string name="shr_search_title">Search</string>
-    <string name="shr_product_title">Title</string>
-    <string name="shr_product_description">Secondary text</string>
 
-    <!-- SecondLife backdrop menu labels -->
-    <string name="shr_featured_label">Featured</string>
-    <string name="shr_apartment_label">Apartment</string>
-    <string name="shr_accessories_label">Accessories</string>
-    <string name="shr_shoes_label">Shoes</string>
-    <string name="shr_tops_label">Tops</string>
-    <string name="shr_bottoms_label">Bottoms</string>
-    <string name="shr_dresses_label">Dresses</string>
-    <string name="shr_account_label">My Account</string>
+    <!--Placeholders-->
+    <string name="username_placeholder">Username</string>
+    <string name="password_placeholder">Password</string>
+
+    <!--Component Titles-->
+    <string name="logo_title">Logo</string>
+    <string name="search_title">Search</string>
+    <string name="filter_title">Filter</string>
+    <string name="orders_title">Orders</string>
+    <string name="please_enter_order_name">Please enter order name</string>
+
+    <!--Buttons-->
+    <string name="next_button">Next</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="start_new_order">Start new order</string>
+
+    <!--Errors-->
+    <string name="not_null_error">This field are required</string>
+    <string name="password_error">Password must contain at least 8 characters</string>
+    <string name="incorrect_password_error">Incorrect password</string>
+    <string name="username_not_fount_error">Doctor with such username not exists</string>
+    <string name="order_name_placeholder">Order name</string>
+    <string name="please_choose_disease_from_list">Please choose disease from list</string>
+    <string name="order_name_already_exists">Order with such name already exists</string>
 </resources>

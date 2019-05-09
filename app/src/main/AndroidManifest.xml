@@ -15,13 +15,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SecondLife"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.vintsarevich.secondlife.activity.MainActivity">
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:targetApi="m">
+        <activity
+            android:name="com.vintsarevich.secondlife.activity.SplashScreenActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.vintsarevich.secondlife.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vintsarevich.secondlife.activity.OrderDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vintsarevich.secondlife.activity.OrdersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vintsarevich.secondlife.activity.OrderProcessorActivity"
+            android:screenOrientation="portrait" />
     </application>
 </manifest>
