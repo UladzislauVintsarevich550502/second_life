@@ -31,7 +31,7 @@ class OrdersActivity : AppCompatActivity() {
             startActivity(
                 Intent(
                     this,
-                    OrderProcessorActivity::class.java
+                    OrderStartActivity::class.java
                 )
             )
         }

@@ -1,5 +1,7 @@
 package com.vintsarevich.secondlife.service
 
+import com.vintsarevich.secondlife.service.request.DiseaseServiceApi
+import com.vintsarevich.secondlife.service.request.DiseaseStageServiceApi
 import com.vintsarevich.secondlife.service.request.DoctorServiceApi
 import com.vintsarevich.secondlife.service.request.OrderServiceApi
 import retrofit2.Retrofit
@@ -35,5 +37,13 @@ class NetworkService private constructor() {
 
     fun getOrderServiceApi(): OrderServiceApi {
         return mRetrofit.create(OrderServiceApi::class.java)
+    }
+
+    fun getDiseaseServiceApi(): DiseaseServiceApi {
+        return mRetrofit.create(DiseaseServiceApi::class.java)
+    }
+
+    fun getDiseaseStageServiceApi(): DiseaseStageServiceApi {
+        return mRetrofit.create(DiseaseStageServiceApi::class.java)
     }
 }

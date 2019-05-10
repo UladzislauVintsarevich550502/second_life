@@ -37,7 +37,13 @@
             android:name="com.vintsarevich.secondlife.activity.OrdersActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.vintsarevich.secondlife.activity.OrderProcessorActivity"
+            android:name="com.vintsarevich.secondlife.activity.OrderStartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vintsarevich.secondlife.activity.ChooseDiseaseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vintsarevich.secondlife.activity.ChooseDiseaseStageActivity"
             android:screenOrientation="portrait" />
     </application>
 </manifest>

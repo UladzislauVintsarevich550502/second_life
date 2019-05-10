@@ -25,4 +25,6 @@
     <string name="order_name_placeholder">Order name</string>
     <string name="please_choose_disease_from_list">Please choose disease from list</string>
     <string name="order_name_already_exists">Order with such name already exists</string>
+    <string name="disease_title">Disease</string>
+    <string name="please_choose_disease_stage_condition">Please choose disease stage condition</string>
 </resources>

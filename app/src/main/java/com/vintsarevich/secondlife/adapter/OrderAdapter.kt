@@ -1,4 +1,4 @@
-package com.vintsarevich.secondlife.adapter;
+package com.vintsarevich.secondlife.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
