@@ -23,6 +23,7 @@ class OrderStartActivity : AppCompatActivity() {
             if (new_order_name.text == null) {
                 new_order_name.error = getString(R.string.not_null_error)
             } else {
+                save_order_name.isEnabled = false
                 NetworkService.instance.getOrderServiceApi()
                     .createOrder(new_order_name.text.toString(), getNicknameFromSharedPreference())
                     .enqueue(object : Callback<Long> {
@@ -54,6 +55,7 @@ class OrderStartActivity : AppCompatActivity() {
     private fun changeActivity(id: Long) {
         val intent = Intent(this, ChooseDiseaseActivity::class.java)
         intent.putExtra(OrdersActivity.ORDER_ID_EXTRA, id)
+        save_order_name.isEnabled = true
         startActivity(intent)
     }
 }

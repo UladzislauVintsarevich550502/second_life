@@ -27,7 +27,7 @@ class OrdersActivity : AppCompatActivity() {
 
         setSupportActionBar(orders_activity_toolbar)
 
-        start_new_order.setOnClickListener {
+        resend_order_cancel.setOnClickListener {
             startActivity(
                 Intent(
                     this,
@@ -47,7 +47,15 @@ class OrdersActivity : AppCompatActivity() {
                     order_list_view.adapter = orderAdapter
                     order_list_view.onItemClickListener =
                         AdapterView.OnItemClickListener { _, _, _, id ->
-                            changeActivity(id)
+                            val order = response.body()!!.findLast { order -> order.id == id }
+                            if (order!!.status != "ORDER_START") {
+                                if (order.status != "ORDER_COMPLETE") {
+                                    changeActivity(id, ResendOrderActivity::class.java)
+                                }
+                                changeActivity(id, OrderDetailsActivity::class.java)
+                            } else {
+                                changeActivity(id, ChooseDiseaseActivity::class.java)
+                            }
                         }
                 }
 
@@ -80,8 +88,8 @@ class OrdersActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    private fun changeActivity(id: Long) {
-        val intent = Intent(this, OrderDetailsActivity::class.java)
+    private fun changeActivity(id: Long, context: Class<*>) {
+        val intent = Intent(this, context)
         intent.putExtra(ORDER_ID_EXTRA, id)
         startActivity(intent)
     }

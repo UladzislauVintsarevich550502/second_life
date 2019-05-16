@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.vintsarevich.secondlife.activity.ChooseDiseaseStageActivity">
+    tools:context="com.vintsarevich.secondlife.activity.ChooseLabActivity">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/hhubu"
@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/disease_stage_activity_toolbar"
+            android:id="@+id/lab_activity_toolbar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
@@ -25,32 +25,33 @@
     </android.support.constraint.ConstraintLayout>
 
     <TextView
-        android:id="@+id/disease_stage_text_view"
-        android:layout_width="351dp"
-        android:layout_height="72dp"
+        android:id="@+id/lab_text_view"
+        android:layout_width="340dp"
+        android:layout_height="93dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:gravity="center"
-        android:text="@string/please_choose_disease_stage_from_list"
+        android:text="@string/please_choose_lab_from_list"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/disease_stage_list_view"
-        android:layout_width="411dp"
-        android:layout_height="371dp"
+        android:id="@+id/lab_list_view"
+        android:layout_width="412dp"
+        android:layout_height="353dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/disease_stage_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/lab_text_view" />
 </android.support.constraint.ConstraintLayout>

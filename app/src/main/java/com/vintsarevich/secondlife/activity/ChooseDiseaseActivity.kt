@@ -44,11 +44,9 @@ class ChooseDiseaseActivity : AppCompatActivity() {
                     disease_list_view.adapter = diseaseAdapter
                     disease_list_view.onItemClickListener =
                         AdapterView.OnItemClickListener { _, _, _, id ->
+                            disease_list_view.isEnabled = false
                             NetworkService.instance.getOrderServiceApi()
-                                .addDiseaseToOrder(
-                                    orderId,
-                                    id
-                                )
+                                .addDiseaseToOrder(orderId, id)
                                 .enqueue(object : Callback<Void> {
                                     override fun onResponse(
                                         call: Call<Void>?,
@@ -96,6 +94,7 @@ class ChooseDiseaseActivity : AppCompatActivity() {
     private fun changeActivity(id: Long) {
         val intent = Intent(this, ChooseDiseaseStageActivity::class.java)
         intent.putExtra(OrdersActivity.ORDER_ID_EXTRA, id)
+        disease_list_view.isEnabled = true
         startActivity(intent)
     }
 }

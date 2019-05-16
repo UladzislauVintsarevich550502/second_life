@@ -45,5 +45,20 @@
         <activity
             android:name="com.vintsarevich.secondlife.activity.ChooseDiseaseStageActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vintsarevich.secondlife.activity.ChooseLabActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vintsarevich.secondlife.activity.ChooseTestRecommendationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vintsarevich.secondlife.activity.ChooseTherapyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vintsarevich.secondlife.activity.PatientInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vintsarevich.secondlife.activity.ResendOrderActivity"
+            android:screenOrientation="portrait" />
     </application>
 </manifest>

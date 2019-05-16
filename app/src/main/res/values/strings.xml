@@ -26,5 +26,24 @@
     <string name="please_choose_disease_from_list">Please choose disease from list</string>
     <string name="order_name_already_exists">Order with such name already exists</string>
     <string name="disease_title">Disease</string>
-    <string name="please_choose_disease_stage_condition">Please choose disease stage condition</string>
+    <string name="please_choose_disease_stage_from_list">Please choose disease stage from list</string>
+    <string name="therapy_title">Therapy</string>
+    <string name="please_choose_therapy_from_list">Please choose therapy from list</string>
+    <string name="please_choose_test_recommendation_from_list">Please choose test recommendation from list</string>
+    <string name="please_choose_lab_from_list">Please choose lab from list</string>
+    <string name="please_complete_order_by_patient_info">Please complete order by patient info</string>
+    <string name="day_of_birthday">Day of Birthday</string>
+    <string name="gender">Gender</string>
+    <string name="first_name">First name</string>
+    <string name="second_name">Second name</string>
+    <string name="address">Address</string>
+    <string name="submit_order">Submit Order</string>
+    <string name="cancel">Cancel</string>
+    <string name="order_didn_t_send_to_lab">Order didn\'t send to lab</string>
+    <string name="resend_order">Resend Order</string>
+
+    <string-array name="genders">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 </resources>

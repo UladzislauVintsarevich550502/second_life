@@ -6,44 +6,44 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.widget.AdapterView
 import com.vintsarevich.secondlife.R
-import com.vintsarevich.secondlife.adapter.DiseaseStageAdapter
-import com.vintsarevich.secondlife.model.DiseaseStage
+import com.vintsarevich.secondlife.adapter.TestRecommendationAdapter
+import com.vintsarevich.secondlife.model.TestRecommendation
 import com.vintsarevich.secondlife.service.NetworkService
-import kotlinx.android.synthetic.main.choose_disease_stage_activity.*
+import kotlinx.android.synthetic.main.choose_test_recommendation_activity.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ChooseDiseaseStageActivity : AppCompatActivity() {
+class ChooseTestRecommendationActivity : AppCompatActivity() {
 
-    lateinit var diseaseStageAdapter: DiseaseStageAdapter
+    lateinit var testRecommendationAdapter: TestRecommendationAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.choose_disease_stage_activity)
+        setContentView(R.layout.choose_test_recommendation_activity)
 
-        setSupportActionBar(disease_stage_activity_toolbar)
+        setSupportActionBar(test_recommendation_activity_toolbar)
 
         val orderId =
             intent!!.extras!!.get(OrdersActivity.ORDER_ID_EXTRA) as Long
 
-        NetworkService.instance.getDiseaseStageServiceApi().getDiseaseStages(orderId)
-            .enqueue(object : Callback<List<DiseaseStage>> {
+        NetworkService.instance.getTestRecommendationServiceApi().getTestRecommendations(orderId)
+            .enqueue(object : Callback<List<TestRecommendation>> {
                 override fun onResponse(
-                    call: Call<List<DiseaseStage>>?,
-                    response: Response<List<DiseaseStage>>?
+                    call: Call<List<TestRecommendation>>?,
+                    response: Response<List<TestRecommendation>>?
                 ) {
-                    diseaseStageAdapter =
-                        DiseaseStageAdapter(
+                    testRecommendationAdapter =
+                        TestRecommendationAdapter(
                             applicationContext,
                             response!!.body()!!
                         )
-                    disease_stage_list_view.adapter = diseaseStageAdapter
-                    disease_stage_list_view.onItemClickListener =
+                    test_recommendation_list_view.adapter = testRecommendationAdapter
+                    test_recommendation_list_view.onItemClickListener =
                         AdapterView.OnItemClickListener { _, _, _, id ->
-                            disease_stage_list_view.isEnabled = false
+                            test_recommendation_list_view.isEnabled = false
                             NetworkService.instance.getOrderServiceApi()
-                                .addDiseaseStageToOrder(orderId, id)
+                                .addTestRecommendationToOrder(orderId, id)
                                 .enqueue(object : Callback<Void> {
                                     override fun onResponse(
                                         call: Call<Void>?,
@@ -59,21 +59,21 @@ class ChooseDiseaseStageActivity : AppCompatActivity() {
                         }
                 }
 
-                override fun onFailure(call: Call<List<DiseaseStage>>?, t: Throwable?) {
+                override fun onFailure(call: Call<List<TestRecommendation>>?, t: Throwable?) {
                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
             })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.stage_menu, menu)
+        menuInflater.inflate(R.menu.test_recommendation_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     private fun changeActivity(id: Long) {
-        val intent = Intent(this, ChooseTherapyActivity::class.java)
+        val intent = Intent(this, ChooseLabActivity::class.java)
         intent.putExtra(OrdersActivity.ORDER_ID_EXTRA, id)
-        disease_stage_list_view.isEnabled = true
+        test_recommendation_list_view.isEnabled = true
         startActivity(intent)
     }
 

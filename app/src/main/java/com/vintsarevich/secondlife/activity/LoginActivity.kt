@@ -10,8 +10,8 @@ import com.vintsarevich.secondlife.activity.SplashScreenActivity.Companion.APP_P
 import com.vintsarevich.secondlife.activity.SplashScreenActivity.Companion.APP_PREFERENCES_USERNAME
 import com.vintsarevich.secondlife.model.User
 import com.vintsarevich.secondlife.service.NetworkService
+import isNotEmpty
 import isPasswordValid
-import isUsernameValid
 import kotlinx.android.synthetic.main.login_activity.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,8 +37,8 @@ class LoginActivity : AppCompatActivity() {
         password_input.error =
             if (!isPasswordValid(password_input.text)) getString(R.string.password_error) else null
         username_input.error =
-            if (!isUsernameValid(username_input.text)) getString(R.string.not_null_error) else null
-        if (isUsernameValid(username_input.text) && isPasswordValid(password_input.text)) {
+            if (!isNotEmpty(username_input.text)) getString(R.string.not_null_error) else null
+        if (isNotEmpty(username_input.text) && isPasswordValid(password_input.text)) {
             sendRequestForCheckUser()
         }
     }

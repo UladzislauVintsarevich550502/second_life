@@ -1,9 +1,6 @@
 package com.vintsarevich.secondlife.service
 
-import com.vintsarevich.secondlife.service.request.DiseaseServiceApi
-import com.vintsarevich.secondlife.service.request.DiseaseStageServiceApi
-import com.vintsarevich.secondlife.service.request.DoctorServiceApi
-import com.vintsarevich.secondlife.service.request.OrderServiceApi
+import com.vintsarevich.secondlife.service.request.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -20,7 +17,7 @@ class NetworkService private constructor() {
 
     companion object {
         private var mInstance: NetworkService? = null
-        private const val BASE_URL = "http://192.168.0.105:8080"
+        private const val BASE_URL = "http://192.168.0.106:8080"
 
         val instance: NetworkService
             get() {
@@ -45,5 +42,21 @@ class NetworkService private constructor() {
 
     fun getDiseaseStageServiceApi(): DiseaseStageServiceApi {
         return mRetrofit.create(DiseaseStageServiceApi::class.java)
+    }
+
+    fun getLabServiceApi(): LabServiceApi {
+        return mRetrofit.create(LabServiceApi::class.java)
+    }
+
+    fun getTestRecommendationServiceApi(): TestRecommendationServiceApi {
+        return mRetrofit.create(TestRecommendationServiceApi::class.java)
+    }
+
+    fun getTherapyApi(): TherapyServiceApi {
+        return mRetrofit.create(TherapyServiceApi::class.java)
+    }
+
+    fun getFileApi(): FileServiceApi {
+        return mRetrofit.create(FileServiceApi::class.java)
     }
 }

@@ -6,44 +6,44 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.widget.AdapterView
 import com.vintsarevich.secondlife.R
-import com.vintsarevich.secondlife.adapter.DiseaseStageAdapter
-import com.vintsarevich.secondlife.model.DiseaseStage
+import com.vintsarevich.secondlife.adapter.LabAdapter
+import com.vintsarevich.secondlife.model.Lab
 import com.vintsarevich.secondlife.service.NetworkService
-import kotlinx.android.synthetic.main.choose_disease_stage_activity.*
+import kotlinx.android.synthetic.main.choose_lab_activity.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ChooseDiseaseStageActivity : AppCompatActivity() {
+class ChooseLabActivity : AppCompatActivity() {
 
-    lateinit var diseaseStageAdapter: DiseaseStageAdapter
+    lateinit var labAdapter: LabAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.choose_disease_stage_activity)
+        setContentView(R.layout.choose_lab_activity)
 
-        setSupportActionBar(disease_stage_activity_toolbar)
+        setSupportActionBar(lab_activity_toolbar)
 
         val orderId =
             intent!!.extras!!.get(OrdersActivity.ORDER_ID_EXTRA) as Long
 
-        NetworkService.instance.getDiseaseStageServiceApi().getDiseaseStages(orderId)
-            .enqueue(object : Callback<List<DiseaseStage>> {
+        NetworkService.instance.getLabServiceApi().getLabs(orderId)
+            .enqueue(object : Callback<List<Lab>> {
                 override fun onResponse(
-                    call: Call<List<DiseaseStage>>?,
-                    response: Response<List<DiseaseStage>>?
+                    call: Call<List<Lab>>?,
+                    response: Response<List<Lab>>?
                 ) {
-                    diseaseStageAdapter =
-                        DiseaseStageAdapter(
+                    labAdapter =
+                        LabAdapter(
                             applicationContext,
                             response!!.body()!!
                         )
-                    disease_stage_list_view.adapter = diseaseStageAdapter
-                    disease_stage_list_view.onItemClickListener =
+                    lab_list_view.adapter = labAdapter
+                    lab_list_view.onItemClickListener =
                         AdapterView.OnItemClickListener { _, _, _, id ->
-                            disease_stage_list_view.isEnabled = false
+                            lab_list_view.isEnabled = false
                             NetworkService.instance.getOrderServiceApi()
-                                .addDiseaseStageToOrder(orderId, id)
+                                .addLabToOrder(orderId, id)
                                 .enqueue(object : Callback<Void> {
                                     override fun onResponse(
                                         call: Call<Void>?,
@@ -59,21 +59,21 @@ class ChooseDiseaseStageActivity : AppCompatActivity() {
                         }
                 }
 
-                override fun onFailure(call: Call<List<DiseaseStage>>?, t: Throwable?) {
+                override fun onFailure(call: Call<List<Lab>>?, t: Throwable?) {
                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
             })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.stage_menu, menu)
+        menuInflater.inflate(R.menu.lab_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     private fun changeActivity(id: Long) {
-        val intent = Intent(this, ChooseTherapyActivity::class.java)
+        val intent = Intent(this, PatientInfoActivity::class.java)
         intent.putExtra(OrdersActivity.ORDER_ID_EXTRA, id)
-        disease_stage_list_view.isEnabled = true
+        lab_list_view.isEnabled = true
         startActivity(intent)
     }
 
