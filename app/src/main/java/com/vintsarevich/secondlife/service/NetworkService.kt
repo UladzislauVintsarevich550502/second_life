@@ -17,7 +17,7 @@ class NetworkService private constructor() {
 
     companion object {
         private var mInstance: NetworkService? = null
-        private const val BASE_URL = "http://192.168.0.106:8080"
+        private const val BASE_URL = "https://damp-castle-30486.herokuapp.com"
 
         val instance: NetworkService
             get() {

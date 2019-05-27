@@ -71,6 +71,7 @@ class OrderAdapter(
     private fun getOrderStatusProgress(status: String): OrderStatusProgress = when (status) {
         OrderStatusProgressType.ORDER_ARCHIVED.name -> OrderStatusProgressType.ORDER_ARCHIVED.orderStatusProgress
         OrderStatusProgressType.ORDER_COMPLETE.name -> OrderStatusProgressType.ORDER_COMPLETE.orderStatusProgress
+        OrderStatusProgressType.ORDER_SUBMIT_TO_LAB.name -> OrderStatusProgressType.ORDER_SUBMIT_TO_LAB.orderStatusProgress
         OrderStatusProgressType.ORDER_START.name -> OrderStatusProgressType.ORDER_START.orderStatusProgress
         else -> OrderStatusProgressType.DEFAULT.orderStatusProgress
     }
